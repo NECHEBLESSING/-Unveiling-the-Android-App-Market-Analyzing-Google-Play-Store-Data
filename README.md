@@ -2,13 +2,14 @@
 # Overview
 The Google Playstore is a vast marketplace for mobile apps with millions of apps available for download. This report aims to provide insights into the Playstore dataset, exploring trends, patterns, and correlations between various apps charactristics.
 # Data Source
-- kaggle
+- kaggle [DATASET](https://www.kaggle.com/datasets/utshabkumarghosh/android-app-market-on-google-play)
 # Data Processing
 The dataset will be cleaned and processed to remove missing values,duplicates, and
 irrelevant data. The processing steps includes;
 - Handling missing values
 - Data Normalization
 - Feature scaling
+  
 ### Handling missing values
 *Removing NA Values and Data Cleaning*
 
@@ -16,6 +17,7 @@ irrelevant data. The processing steps includes;
 app_df=app_df.dropna()
 user_reviews_df=user_reviews_df.dropna()
 ```
+
 *Clean Data*
 ```
 data_clean=app_df.drop(columns=['Unnamed: 0'])
@@ -53,6 +55,8 @@ inplace=True)
 desc_stats=data_clean.describe()
 print(desc_stats)
 ```
+![U-A ](https://github.com/NECHEBLESSING/-Unveiling-the-Android-App-Market-Analyzing-Google-Play-Store-Data/blob/main/U-A%203.PNG)
+
 # EXPLORATORY DATA ANALYSIS (EDA)
 EDA will be performed to understand the distribution of app characteristics, including rating,
 installs, and content rating. These analysis will reveal:
@@ -75,6 +79,8 @@ plt.xlabel('Rating')
 plt.ylabel('Frequency')
 plt.show()
 ```
+![U-A](https://github.com/NECHEBLESSING/-Unveiling-the-Android-App-Market-Analyzing-Google-Play-Store-Data/blob/main/U-A%204.PNG)
+
 *Distribution of app ratings*
 ```
 plt.figure(figsize=(8,6))
@@ -84,6 +90,8 @@ plt.xlabel('Installs')
 plt.ylabel('Frequency')
 plt.show()
 ```
+![U-A](https://github.com/NECHEBLESSING/-Unveiling-the-Android-App-Market-Analyzing-Google-Play-Store-Data/blob/main/U-A%205.PNG)
+
 ### Top categories by number of apps
 *APP RATING VS CONTENT RATING*
 The relationship between app rating and content rating was explored to understand how
@@ -99,6 +107,8 @@ plt.title('App Ratings by Content Rating')
 plt.xticks(rotation=45)
 plt.show()
 ```
+![U-A](https://github.com/NECHEBLESSING/-Unveiling-the-Android-App-Market-Analyzing-Google-Play-Store-Data/blob/main/U-A%206.PNG)
+
 ###NUMBER OF APPS BY CATEGORY
 The number of apps by category was analyzed to understand the most popular categories. The
 results showed:
@@ -113,6 +123,8 @@ plt.xlabel('Count')
 plt.ylabel('Category')
 plt.show()
 ```
+![U-A ](https://github.com/NECHEBLESSING/-Unveiling-the-Android-App-Market-Analyzing-Google-Play-Store-Data/blob/main/U-A%207.PNG)
+
 ### CORRELATION ANALYSIS
 Correlation analysis was performed to understand the relationships between various app
 characteristics. The results showed:
@@ -125,6 +137,7 @@ sns.heatmap(corr_matrix, annot=True, cmap='purples',linewidths=0.5)
 plt.title('Correlation Matrix of Numerical Features')
 plt.show()
 ```
+![U-A](https://github.com/NECHEBLESSING/-Unveiling-the-Android-App-Market-Analyzing-Google-Play-Store-Data/blob/main/U-A%208.PNG)
 
 ### TOP 10 INSTALLED APPS, RATING AND REVIEWS
 The top 10 install app,rating and reviews were analyzed to understand the characteristics of
@@ -137,18 +150,24 @@ popular apps. The results showed:
 top_installs=data_clean[['App','Installs']].sort_values(by='Installs',ascending=False).head(10)
 print(top_installs)
 ```
+![U-A](https://github.com/NECHEBLESSING/-Unveiling-the-Android-App-Market-Analyzing-Google-Play-Store-Data/blob/main/U-A%209.PNG)
+
 *Top 10 by Rating*
 ```
 top_rating=data_clean[['App','Rating']].sort_values(by='Rating',ascend
 ing=False).head(10)
 print(top_rating)
 ```
+![U-A](https://github.com/NECHEBLESSING/-Unveiling-the-Android-App-Market-Analyzing-Google-Play-Store-Data/blob/main/U-A%2010.PNG)
+
 *Top 10 by Reviews*
 ```
 top_reviews=data_clean[['App','Reviews']].sort_values(by='Reviews',asc
 ending=False).head(10)
 print(top_reviews)
 ```
+![U-A](https://github.com/NECHEBLESSING/-Unveiling-the-Android-App-Market-Analyzing-Google-Play-Store-Data/blob/main/U-A%2011.PNG)
+
 ### PRICE OF PAID APPS AND FREE APPS
 The price of paid apps and free apps was analyzed to understand the pricing trends. The results
 showed:
@@ -164,6 +183,8 @@ plt.ylabel('Frequency')
 plt.legend()
 plt.show()
 ```
+![U-A](https://github.com/NECHEBLESSING/-Unveiling-the-Android-App-Market-Analyzing-Google-Play-Store-Data/blob/main/U-A%2012.PNG)
+
 ### APP UPDATED BY YEAR
 The number of app updates by year was analyzed to understand the trend of app updated. The
 results showed:
@@ -179,6 +200,8 @@ plt.xlabel('Year')
 plt.ylabel('Number of Updates')
 plt.show()
 ```
+![U-A](https://github.com/NECHEBLESSING/-Unveiling-the-Android-App-Market-Analyzing-Google-Play-Store-Data/blob/main/U-A%2013.PNG)
+
 # INSIGHTS AND RECOMMENDATION
 Based on the analysis, the following insights and recommendations were derived:
 ### Insights:
