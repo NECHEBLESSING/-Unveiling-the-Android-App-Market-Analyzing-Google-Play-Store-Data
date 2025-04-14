@@ -1,9 +1,94 @@
 # Unveiling-the-Android-App-Market-Analyzing-Google-Play-Store-Data
-# Overview
+### TABLE OF CONTENT
+. [OVERVIEW](#overview)
+
+. [DATA SOURCE](#data-source)
+
+. [LANDING PAGE](#landing-page)
+
+. [DATA TOOLS](#data-tools)
+
+. [DATA PROCESSING](#data-processing)
+
+. [EXPLORATORY DATAANALYSIS](#exploratory-data-analysis)
+
+. [INSIGHTS](#insights)
+
+. [RECOMMENDATION](#recommendation)
+
+### Overview
 The Google Playstore is a vast marketplace for mobile apps with millions of apps available for download. This report aims to provide insights into the Playstore dataset, exploring trends, patterns, and correlations between various apps charactristics.
-# Data Source
+### Data Source
 - kaggle [DATASET](https://www.kaggle.com/datasets/utshabkumarghosh/android-app-market-on-google-play)
-# Data Processing
+
+### Landing page
+##### apps.csv — Column Descriptions
+**Unnamed:** 0
+- An auto-generated index column from the original CSV file. It usually can be ignored or dropped.
+
+**App**
+- The name of the mobile application.
+  
+**Category**
+- The genre/category under which the app is listed on the Google Play Store (e.g., ART_AND_DESIGN, GAME, FINANCE).
+  
+**Rating**
+- The average rating of the app (typically on a scale of 1 to 5) given by users.
+  
+**Reviews**
+- Total number of user reviews submitted for the app.
+  
+**Size**
+- The size of the app in megabytes (MB). Some values may be in kilobytes (e.g., '14k') or say 'Varies with device'.
+  
+**Installs**
+- Approximate number of times the app has been installed (e.g., '10,000+', '1,000,000+').
+  
+**Type**
+- Whether the app is Free or Paid.
+
+**Price**
+- The price of the app (0 if Free, or a numeric value in dollars if Paid).
+  
+**Content Rating**
+- Age group suitability for the app (e.g., Everyone, Teen, Mature 17+).
+  
+**Genres**
+- A more specific classification of the app, sometimes containing multiple tags separated by semicolons (e.g., "Action;Adventure").
+**Last Updated**
+- The last date the app was updated on the Play Store.
+  
+**Current Ver**
+- The current version number of the app.
+  
+**Android Ver**
+- The minimum required Android OS version to run the app.
+
+### user_reviews.csv — Column Descriptions
+**App**
+- The name of the app being reviewed. This links to the App column in apps.csv.
+**Translated_Review**
+- The user's review text, translated to English if originally submitted in another language.
+
+**Sentiment**
+- The overall sentiment of the review, as categorized by NLP (e.g., Positive, Neutral, or Negative).
+  
+**Sentiment_Polarity**
+A numerical value ranging from -1 to 1:
+Negative sentiment → closer to -1
+Positive sentiment → closer to 1
+Neutral sentiment → around 0
+
+**Sentiment_Subjectivity**
+A numerical value ranging from 0 to 1:
+Closer to 0 means the text is more objective
+Closer to 1 means the text is more subjective/opinionated
+Let me know if you want to clean or merge the datasets, analyze ratings vs. sentiment, or visualize anything!
+
+### Data tools
+Pandas, Python
+
+### Data Processing
 The dataset will be cleaned and processed to remove missing values,duplicates, and
 irrelevant data. The processing steps includes;
 - Handling missing values
@@ -57,7 +142,7 @@ print(desc_stats)
 ```
 ![U-A ](https://github.com/NECHEBLESSING/-Unveiling-the-Android-App-Market-Analyzing-Google-Play-Store-Data/blob/main/U-A%203.PNG)
 
-# EXPLORATORY DATA ANALYSIS (EDA)
+# Exploratory Data Analysis 
 EDA will be performed to understand the distribution of app characteristics, including rating,
 installs, and content rating. These analysis will reveal:
 - Distribution of app ratings
@@ -202,8 +287,7 @@ plt.show()
 ```
 ![U-A](https://github.com/NECHEBLESSING/-Unveiling-the-Android-App-Market-Analyzing-Google-Play-Store-Data/blob/main/U-A%2013.PNG)
 
-# INSIGHTS AND RECOMMENDATION
-Based on the analysis, the following insights and recommendations were derived:
+**Based on the analysis, the following insights and recommendations were derived**
 ### Insights:
 - Most apps have a rating between 4-5
 - Apps that are installed 0-0.3 times are more frequent than other installed apps
@@ -214,7 +298,7 @@ number with the latter being not available
 reviews, followed by Subway Surfers and Clash Royale
 - Most apps in Playstore are free to install
 - From 2017 - 2018 many apps had major updates which led to a boom in app updates between that time with more than 4000 updates.
-### RECOMMENDATIONS
+### Recommendation 
 - Developers should focus on creating high-quality apps with good content ratings
 - Developers should prioritize app updates to keep users engaged.
 
